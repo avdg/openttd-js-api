@@ -25,8 +25,29 @@ openttdClient.on('welcome', function(data) {
 
 	openttdClient.gamescript({test:"hello"});
 	openttdClient.rcon("help");
-	openttdClient.poll("date", 0);
-	openttdClient.getUpdates('console', 'automatic');
+
+	// Update types:
+	//  - date
+	//  - client info
+	//  - company info
+	//  - company economy
+	//  - company stats
+	//  - chat
+	//  - console
+	//  - cmd names
+	//  - cmd logging
+	//  - gamescript
+	openttdClient.poll("date", 0); // Update type, Extra data
+
+	// Frequencies:
+	//  - poll
+	//  - daily
+	//  - weekly
+	//  - monthly
+	//  - quarterly
+	//  - anually
+	//  - automatic
+	openttdClient.getUpdates('console', 'automatic'); // Update type, Frequency
 });
 
 openttdClient.on('protocol', function(data) {
