@@ -25,6 +25,8 @@ openttdClient.on('welcome', function(data) {
 
 	openttdClient.gamescript({test:"hello"});
 	openttdClient.rcon("help");
+	openttdClient.poll("date", 0);
+	openttdClient.getUpdates('console', 'automatic');
 });
 
 openttdClient.on('protocol', function(data) {
@@ -40,7 +42,7 @@ openttdClient.on('rcon', function(color, msg) {
 })
 
 openttdClient.on('console', function(origin, msg) {
-	console.log(origin + " requesting '" + msg + "'");
+	console.log('Console: ' + origin + ": " + msg);
 })
 
 openttdClient.on('end', function(reason) {
