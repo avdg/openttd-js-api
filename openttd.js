@@ -19,7 +19,9 @@ openttdClient.on('welcome', function(data) {
 		'Dedicated: ' + data.serverDedicated +
 		' - Climate: ' + climate[data.serverLandscape] +
 		' - map: "' + data.serverMapName + '"' +
-		' - year started: ' + data.serverStartYear +
+		' - date started: ' + data.serverStartDate.day +
+		'-' + data.serverStartDate.month +
+		'-' + data.serverStartDate.year +
 		' - size: ' + data.mapWidth + 'x' + data.mapHeight
 	);
 
@@ -60,11 +62,18 @@ openttdClient.on('error', function(msg) {
 
 openttdClient.on('rcon', function(color, msg) {
 	console.log('rcon: ' + msg);
-})
+});
+
+openttdClient.on('date', function(date) {
+	console.log(
+		'Current date: ' + date.day + '-' + date.month + '-' + date.year +
+		' quarter ' + date.quarter
+	);
+});
 
 openttdClient.on('console', function(origin, msg) {
 	console.log('Console: ' + origin + ": " + msg);
-})
+});
 
 openttdClient.on('end', function(reason) {
 	console.log('Disconnecting (' + reason + ')');
