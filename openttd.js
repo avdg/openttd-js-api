@@ -40,6 +40,7 @@ openttdClient.on('welcome', function(data) {
 	//  - cmd logging
 	//  - gamescript
 	openttdClient.poll("date", 0); // Update type, Extra data
+	openttdClient.poll('client info', 0); // OpenTTD 1.3.1, pls say something
 
 	// Frequencies:
 	//  - poll
@@ -50,6 +51,7 @@ openttdClient.on('welcome', function(data) {
 	//  - anually
 	//  - automatic
 	openttdClient.getUpdates('console', 'automatic'); // Update type, Frequency
+	openttdClient.getUpdates('client info', 'automatic');
 });
 
 openttdClient.on('protocol', function(data) {
@@ -69,6 +71,17 @@ openttdClient.on('date', function(date) {
 		'Current date: ' + date.day + '-' + date.month + '-' + date.year +
 		' quarter ' + date.quarter
 	);
+});
+
+openttdClient.on('clientUpdate', function() {
+	console.log('Clients:');
+	if (Object.keys(openttdClient.clients).length > 0) {
+		for (var i in openttdClient.clients) {
+			console.log("  Client id " + i + ": " + JSON.stringify(openttdClient.clients[i]));
+		}
+	} else {
+		console.log("  NONE");
+	}
 });
 
 openttdClient.on('console', function(origin, msg) {
