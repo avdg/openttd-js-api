@@ -194,7 +194,7 @@ module.exports = {
 				{name: "president",  type: "utf8"},
 				{name: "colour",     type: "UInt8"},
 				{name: "passworded", type: "bool"},
-				{name: "startYear",  type: "UInt32"},
+				{name: "startYear",  type: "UInt32LE"},
 				{name: "ai",         type: "bool"}
 			],
 		},
