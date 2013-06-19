@@ -40,7 +40,7 @@ openttdClient.on('welcome', function(data) {
 	//  - cmd logging
 	//  - gamescript
 	openttdClient.poll("date", 0); // Update type, Extra data
-	openttdClient.poll('client info', 0); // OpenTTD 1.3.1, pls say something
+	openttdClient.poll('client info', 0xFFFFFFFF); // OpenTTD 1.3.1, pls say something
 
 	// Frequencies:
 	//  - poll
