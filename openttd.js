@@ -43,6 +43,7 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.poll('client info', 0xFFFFFFFF); // OpenTTD 1.3.1, pls say something
 	openttdClient.poll('company info', 0xFFFFFFFF);
 	openttdClient.poll('company economy', 0);
+	openttdClient.poll('company stats', 0);
 
 	// Frequencies:
 	//  - poll
@@ -56,6 +57,7 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.getUpdates('client info', 'automatic');
 	openttdClient.getUpdates('company info', 'automatic');
 	openttdClient.getUpdates('company economy', 'weekly');
+	openttdClient.getUpdates('company stats', 'weekly');
 });
 
 openttdClient.on('protocol', function(data) {
