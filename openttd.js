@@ -42,6 +42,7 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.poll("date", 0); // Update type, Extra data
 	openttdClient.poll('client info', 0xFFFFFFFF); // OpenTTD 1.3.1, pls say something
 	openttdClient.poll('company info', 0xFFFFFFFF);
+	openttdClient.poll('company economy', 0);
 
 	// Frequencies:
 	//  - poll
@@ -54,6 +55,7 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.getUpdates('console', 'automatic'); // Update type, Frequency
 	openttdClient.getUpdates('client info', 'automatic');
 	openttdClient.getUpdates('company info', 'automatic');
+	openttdClient.getUpdates('company economy', 'weekly');
 });
 
 openttdClient.on('protocol', function(data) {
