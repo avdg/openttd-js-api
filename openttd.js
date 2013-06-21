@@ -130,7 +130,11 @@ openttdClient.on('cmdLogging', function(data) {
 
 openttdClient.on('chat', function(data) {
 	console.log('Chat: ' + JSON.stringify(data));
-})
+});
+
+openttdClient.on('log', function(msg) {
+	console.log(msg.substr(0, msg.length - 1));
+});
 
 openttdClient.on('end', function(reason) {
 	console.log('Disconnecting (' + reason + ')');
