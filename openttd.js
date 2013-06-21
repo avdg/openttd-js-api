@@ -60,6 +60,7 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.getUpdates('company economy', 'weekly');
 	openttdClient.getUpdates('company stats', 'weekly');
 	openttdClient.getUpdates('cmd logging', 'automatic');
+	openttdClient.getUpdates('chat', 'automatic');
 });
 
 openttdClient.on('protocol', function(data) {
@@ -119,6 +120,10 @@ openttdClient.on('cmdNames', function() {
 openttdClient.on('cmdLogging', function(data) {
 	console.log('Log: ' + JSON.stringify(data));
 });
+
+openttdClient.on('chat', function(data) {
+	console.log('Chat: ' + JSON.stringify(data));
+})
 
 openttdClient.on('end', function(reason) {
 	console.log('Disconnecting (' + reason + ')');
