@@ -62,7 +62,7 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.getUpdates('cmd logging', 'automatic');
 	openttdClient.getUpdates('chat', 'automatic');
 
-	// For testing purpose lets subscribe multiple times in a slightly different way
+	// Lets subscribe multiple times for testing purposes, every time in a slightly different way
 	openttdClient.getUpdates('admin_uPdATe_cONsole', 'automatic');
 });
 
