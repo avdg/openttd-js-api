@@ -71,7 +71,7 @@ openttdClient.on('welcome', function(data) {
 });
 
 openttdClient.on('protocol', function(data) {
-	openttdClient.listFrequencies();
+	console.log(openttdClient.getListFrequencies());
 });
 
 openttdClient.on('error', function(msg) {
