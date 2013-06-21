@@ -44,6 +44,7 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.poll('company info', 0xFFFFFFFF);
 	openttdClient.poll('company economy', 0);
 	openttdClient.poll('company stats', 0);
+	openttdClient.poll('cmd names', 0);
 
 	// Frequencies:
 	//  - poll
@@ -105,6 +106,13 @@ openttdClient.on('companyUpdate', function() {
 
 openttdClient.on('console', function(origin, msg) {
 	console.log('Console: ' + origin + ": " + msg);
+});
+
+openttdClient.on('cmdNames', function() {
+	console.log('Available commands:');
+	for (var i = 0; i < openttdClient.commands.length; i++) {
+		console.log(' - ' + openttdClient.commands[i] + ' <id ' + i + '>');
+	}
 });
 
 openttdClient.on('end', function(reason) {
