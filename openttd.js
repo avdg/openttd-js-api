@@ -59,6 +59,7 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.getUpdates('company info', 'automatic');
 	openttdClient.getUpdates('company economy', 'weekly');
 	openttdClient.getUpdates('company stats', 'weekly');
+	openttdClient.getUpdates('cmd logging', 'automatic');
 });
 
 openttdClient.on('protocol', function(data) {
@@ -113,6 +114,10 @@ openttdClient.on('cmdNames', function() {
 	for (var i = 0; i < openttdClient.commands.length; i++) {
 		console.log(' - ' + openttdClient.commands[i] + ' <id ' + i + '>');
 	}
+});
+
+openttdClient.on('cmdLogging', function(data) {
+	console.log('Log: ' + JSON.stringify(data));
 });
 
 openttdClient.on('end', function(reason) {
