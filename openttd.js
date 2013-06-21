@@ -46,6 +46,10 @@ openttdClient.on('welcome', function(data) {
 	openttdClient.poll('company stats', 0);
 	openttdClient.poll('cmd names', 0);
 
+	// Lets poll more data for testing purposes, everytime in a slightly different way
+	openttdClient.poll('admin_UpdaTe_dATE', 0);
+	openttdClient.poll('date');
+
 	// Frequencies:
 	//  - poll
 	//  - daily
