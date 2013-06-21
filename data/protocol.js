@@ -289,7 +289,7 @@ module.exports = {
 				{name: "commandId", type: "UInt16LE"},
 				{name: "p1",        type: "UInt32LE"},
 				{name: "p2",        type: "UInt32LE"},
-				{name: "tile",      type: "UInt64LE"},
+				{name: "tile",      type: "UInt32LE"},
 				{name: "text",      type: "utf8"},
 				{name: "frame",     type: "UInt32LE"}
 			],
