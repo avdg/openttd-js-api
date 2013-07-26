@@ -1,0 +1,53 @@
+0.1.0-rc1
+=========
+
+This release was focussed on the first component, which is responsible for
+communications with the OpenTTD admin port.
+
+Quick summary of the component openttd-adminport.js:
+
+    Supported methods free to use:
+        "on", "getUpdates", "poll", "rcon", "gamescript", "disconnect",
+        "sendPacket" (prefered internal use only)
+
+    Methods of which may be deprecated any time:
+        "getLIstFrequencies"
+
+    Properties accessible for reading:
+        "commands", "companies", "clients"
+
+    Supported events you can use with the "on" method:
+        "welcome", "end", "error", "protocol", "log", "console",
+        "date", "chat", "rcon", "cmdNames", "cmdLogging", "gamescript",
+
+        "clientJoin", "clientUpdate", "clientInfo", "clientQuit", "clientError",
+
+        "companyNew", "companyUpdate", "companyInfo", "companyRemove",
+        "companyEconomy", "companyStats"
+
+This component is shipped with a demo app that can be used as reference.
+This app is also currently used to do basic testing with the api.
+
+Few remarks:
+  - The api is not stable, everything can change with every update to come.
+      Though removing parts of the api may be announced before removing.
+
+  - 64-bit integers handling is not yet considered stable.
+      Company information about economics and chat data are using 64-bit data.
+
+  - Configuration is hardcoded to settings.js.
+       Hopefully this will be changed soonly.
+
+  - Polling all clients or companies may not work as it simply didn't work
+      for me (yet).
+
+0.1.0-rc2
+=========
+
+- Added license
+- Very minor fixes
+
+0.1.0-rc3
+=========
+
+- Added changelog
