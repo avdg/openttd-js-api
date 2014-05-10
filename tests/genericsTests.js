@@ -403,6 +403,17 @@ describe('Generics (internals)', function() {
 					assert.deepEqual(output, ['', 1]);
 				});
 
+				it('Should not try to read utf8 buffers beyond buffer size', function() {
+
+					try {
+						var output = generics.typeTableReceive['utf8'](new Buffer([0x03, 0x02, 0x01]), 0);
+
+						assert.equal(true, false); // Expected throw not throwen
+					} catch (e) {
+						assert.equal(e, 'Out of bounce');
+					}
+				});
+
 				it('Should be able to read UInt64BE buffers');
 				it('Should be able to read UInt64LE buffers');
 				it('Should be able to read Int64BE buffers');
