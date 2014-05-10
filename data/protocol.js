@@ -10,6 +10,7 @@ module.exports = {
 		ADMIN_CHAT:               4, // The admin sends a chat message to be distributed.
 		ADMIN_RCON:               5, // The admin sends a remote console command.
 		ADMIN_GAMESCRIPT:         6, // The admin sends a JSON string for the Gamescript.
+		ADMIN_PING:               7, // The admin sends a ping, it expects from the server to reply with pong
 
 		// Types of receive packages
 		SERVER_FULL:            100, // The server tells the admin it cannot accept the admin.
@@ -38,8 +39,10 @@ module.exports = {
 		SERVER_CMD_NAMES:       122, // The server sends out the names of the DoCommands to the admin.
 		SERVER_CMD_LOGGING:     123, // The server gives the admin copies of incoming command packets.
 		SERVER_GAMESCRIPT:      124, // The server gives the admin information from the GameScript in JSON.
+		SERVER_RCON_END:        125, // The server tells the admin that a specific command has been executed
+		SERVER_PONG:            126, // The server response to a ping
 
-		INVALID_ADMIN_PACKET:                0xFF // An invalid marker for admin packets.
+		INVALID_ADMIN_PACKET:   0xFF // An invalid marker for admin packets.
 	},
 
 	// Description of the format of a package type
@@ -78,21 +81,27 @@ module.exports = {
 				{name: "desttype", type: "UInt8"},
 				{name: "clientId", type: "UInt32LE"},
 				{name: "message",  type: "utf8"}
-			]
+			],
 		},
 		5: {
 			name: "ADMIN_PACKET_ADMIN_RCON",
 			format: [
 				{name: "command", type: "utf8"}
-			]
+			],
 		},
 		6: {
 			name: "ADMIN_PACKET_ADMIN_GAMESCRIPT",
 			format: [
 				{name: "json", type: "utf8"}
-			]
+			],
 		},
-	
+		7: {
+			name: "ADMIN_PACKET_ADMIN_PING",
+			format: [
+				{name: 'id', type: 'UInt32LE'}
+			],
+		},
+
 		100: {
 			name: "ADMIN_PACKET_SERVER_FULL",
 			format: [],
@@ -299,6 +308,18 @@ module.exports = {
 			name: "ADMIN_PACKET_SERVER_GAMESCRIPT",
 			format: [
 				{name: "json", type: "utf8"}
+			],
+		},
+		125: {
+			name: "ADMIN_PACKET_SERVER_RCON_END",
+			format: [
+				{name: "command", type: "utf8"}
+			],
+		},
+		126: {
+			name: "ADMIN_PACKET_SERVER_PONG",
+			format: [
+				{name: "id", type: "UInt32LE"}
 			],
 		},
 	},

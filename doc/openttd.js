@@ -68,6 +68,8 @@ openttdClient.on('welcome', function(data) {
 
 	// Lets subscribe multiple times for testing purposes, every time in a slightly different way
 	openttdClient.getUpdates('admin_uPdATe_cONsole', 'automatic');
+
+	setTimeout(function() {openttdClient.ping(1234);}, 100);
 });
 
 openttdClient.on('protocol', function(data) {
@@ -138,4 +140,12 @@ openttdClient.on('log', function(msg) {
 
 openttdClient.on('end', function(reason) {
 	console.log('Disconnecting (' + reason + ')');
+});
+
+openttdClient.on('rconEnd', function(command) {
+	console.log('"' + command + '" executed');
+})
+
+openttdClient.on('pong', function(id) {
+	console.log('Received pong from server with id ' + id);
 });
