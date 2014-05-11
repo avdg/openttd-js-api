@@ -1,0 +1,27 @@
+{
+	"name": "openttd-js-api",
+	"version": "0.1.0",
+	"description": "Provides tools intended for openttd administration purposes",
+	"author": "Anthony Van de Gejuchte",
+	"main": "openttd-js-api.js",
+	"scripts": {
+		"test": "mocha tests"
+	},
+	"devDependencies": {
+		"mocha": "1.18.x"
+	},
+	"engines": {
+		"node": "0.10.x"
+	},
+	"bugs": {
+		"url": "https://github.com/avdg/openttd-js-api/issues/"
+	},
+	"repository": [
+		{
+			"type": "git",
+			"url": "https://github.com/avdg/openttd-js-api"
+		}
+	],
+	"homepage": "https://github.com/avdg/openttd-js-api",
+	"license": "MIT"
+}
