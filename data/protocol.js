@@ -386,6 +386,7 @@ module.exports = {
 		COLOUR_GREY:      14,
 		COLOUR_WHITE:     15,
 		// COLOUR_END:       16,
+
 		COLOUR_INVALID:   0xFF,
 	},
 

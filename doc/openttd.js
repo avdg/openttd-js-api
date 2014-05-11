@@ -1,3 +1,5 @@
+"use strict";
+
 var tcpPacketListener = require("../lib/openttd-adminport.js");
 
 var openttdClient = new tcpPacketListener();
