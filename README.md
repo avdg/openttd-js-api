@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/avdg/openttd-js-api.svg?branch=master)](https://travis-ci.org/avdg/openttd-js-api)
