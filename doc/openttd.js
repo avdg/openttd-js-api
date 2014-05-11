@@ -1,8 +1,8 @@
 "use strict";
 
-var tcpPacketListener = require("../lib/openttd-adminport.js");
+var openttd = require("../openttd-js-api");
 
-var openttdClient = new tcpPacketListener();
+var openttdClient = new openttd.adminport();
 
 openttdClient.on('welcome', function(data) {
 	var climate = {
