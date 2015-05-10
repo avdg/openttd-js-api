@@ -5,10 +5,13 @@
 	"author": "Anthony Van de Gejuchte",
 	"main": "openttd-js-api.js",
 	"scripts": {
-		"test": "mocha tests"
+		"test": "grunt test"
 	},
 	"devDependencies": {
-		"mocha": "1.18.x"
+		"grunt": "0.4.x",
+		"grunt-cli": "0.1.x",
+		"grunt-mocha-test": "0.12.x",
+		"mocha": "2.2.x"
 	},
 	"engines": {
 		"node": "0.10.x"
