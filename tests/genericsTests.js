@@ -158,70 +158,70 @@ describe('Generics (internals)', function() {
 					var buffer = generics.typeTableSend['uint8'](8);
 
 					assert.equal(buffer.length, 1);
-					assert.deepEqual(buffer.toJSON(), [8]);
+					assert.deepEqual(buffer, new Buffer([8]));
 				});
 
 				it('Should be able to create Int8 buffers', function() {
 					var buffer = generics.typeTableSend['int8'](-8);
 
 					assert.equal(buffer.length, 1);
-					assert.deepEqual(buffer.toJSON(), [248 /* 0xF8 */]);
+					assert.deepEqual(buffer, new Buffer([248 /* 0xF8 */]));
 				});
 
 				it('Should be able to create UInt16LE buffers', function() {
 					var buffer = generics.typeTableSend['uint16le'](0x7877);
 
 					assert.equal(buffer.length, 2);
-					assert.deepEqual(buffer.toJSON(), [0x77, 0x78]);
+					assert.deepEqual(buffer, new Buffer([0x77, 0x78]));
 				});
 
 				it('Should be able to create UInt16BE buffers', function() {
 					var buffer = generics.typeTableSend['uint16be'](0x7877);
 
 					assert.equal(buffer.length, 2);
-					assert.deepEqual(buffer.toJSON(), [0x78, 0x77]);
+					assert.deepEqual(buffer, new Buffer([0x78, 0x77]));
 				});
 
 				it('Should be able to create Int16LE buffers', function() {
 					var buffer = generics.typeTableSend['int16le'](-0x77);
 
 					assert.equal(buffer.length, 2);
-					assert.deepEqual(buffer.toJSON(), [0x89, 0xff]);
+					assert.deepEqual(buffer, new Buffer([0x89, 0xff]));
 				});
 
 				it('Should be able to create Int16BE buffers', function() {
 					var buffer = generics.typeTableSend['int16be'](-0x77);
 
 					assert.equal(buffer.length, 2);
-					assert.deepEqual(buffer.toJSON(), [0xff, 0x89]);
+					assert.deepEqual(buffer, new Buffer([0xff, 0x89]));
 				});
 
 				it('Should be able to create UInt32LE buffers', function() {
 					var buffer = generics.typeTableSend['uint32le'](0x77767574);
 
 					assert.equal(buffer.length, 4);
-					assert.deepEqual(buffer.toJSON(), [0x74, 0x75, 0x76, 0x77]);
+					assert.deepEqual(buffer, new Buffer([0x74, 0x75, 0x76, 0x77]));
 				});
 
 				it('Should be able to create UInt32BE buffers', function() {
 					var buffer = generics.typeTableSend['uint32be'](0x77767574);
 
 					assert.equal(buffer.length, 4);
-					assert.deepEqual(buffer.toJSON(), [0x77, 0x76, 0x75, 0x74]);
+					assert.deepEqual(buffer, new Buffer([0x77, 0x76, 0x75, 0x74]));
 				});
 
 				it('Should be able to create Int32LE buffers', function() {
 					var buffer = generics.typeTableSend['int32le'](-0x777675);
 
 					assert.equal(buffer.length, 4);
-					assert.deepEqual(buffer.toJSON(), [0x8b, 0x89, 0x88, 0xff]);
+					assert.deepEqual(buffer, new Buffer([0x8b, 0x89, 0x88, 0xff]));
 				});
 
 				it('Should be able to create Int32BE buffers', function() {
 					var buffer = generics.typeTableSend['int32be'](-0x777675);
 
 					assert.equal(buffer.length, 4);
-					assert.deepEqual(buffer.toJSON(), [0xff, 0x88, 0x89, 0x8b]);
+					assert.deepEqual(buffer, new Buffer([0xff, 0x88, 0x89, 0x8b]));
 				});
 
 				it('Should be able to create floatLE buffers', function() {
@@ -260,21 +260,21 @@ describe('Generics (internals)', function() {
 					var buffer = generics.typeTableSend['bool'](true);
 
 					assert.equal(buffer.length, 1);
-					assert.deepEqual(buffer.toJSON(), [0x01]);
+					assert.deepEqual(buffer, new Buffer([0x01]));
 				});
 
 				it('Should be able to create utf8 buffers', function() {
 					var buffer = generics.typeTableSend['utf8']('Test');
 
 					assert.equal(buffer.length, 5);
-					assert.deepEqual(buffer.toJSON(), [0x54, 0x65, 0x73, 0x74, 0x00]);
+					assert.deepEqual(buffer, new Buffer([0x54, 0x65, 0x73, 0x74, 0x00]));
 				});
 
 				it('Should not be able to create malicious utf8 buffers containing null chars', function() {
 					var buffer = generics.typeTableSend['utf8']('\u0000Te\u0000st');
 
 					assert.equal(buffer.length, 5);
-					assert.deepEqual(buffer.toJSON(), [0x54, 0x65, 0x73, 0x74, 0x00]);
+					assert.deepEqual(buffer, new Buffer([0x54, 0x65, 0x73, 0x74, 0x00]));
 				});
 			});
 
