@@ -10,7 +10,7 @@ openttdClient.on('welcome', function(data) {
 		LANDSCAPE_ARTIC:     'artic',
 		LANDSCAPE_TROPIC:    'tropic',
 		LANDSCAPE_TOYLAND:   'toyland',
-	}
+	};
 
 	console.log(
 		'Joined server "' + data.serverName +
@@ -115,7 +115,7 @@ openttdClient.on('companyUpdate', function() {
 	} else {
 		console.log("  NONE");
 	}
-})
+});
 
 openttdClient.on('console', function(origin, msg) {
 	console.log('Console: ' + origin + ": " + msg);

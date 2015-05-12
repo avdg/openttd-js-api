@@ -412,7 +412,8 @@ describe('Generics (internals)', function() {
 
 						assert.equal(true, false); // Expected throw not throwen
 					} catch (e) {
-						assert.equal(e, 'Out of bounce');
+						assert.equal(e instanceof Error, true);
+						assert.equal(e.message, 'Out of bounce');
 					}
 				});
 
