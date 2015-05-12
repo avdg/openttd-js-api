@@ -146,7 +146,7 @@ openttdClient.on('end', function(reason) {
 
 openttdClient.on('rconEnd', function(command) {
 	console.log('"' + command + '" executed');
-})
+});
 
 openttdClient.on('pong', function(id) {
 	console.log('Received pong from server with id ' + id);
